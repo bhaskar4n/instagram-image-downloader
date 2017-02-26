@@ -15,7 +15,6 @@ def run(weblink,f,flag,brk):
 	print("downloading all images in"+str(weblink))
 	web_link = "https://www.instagram.com/"+str(weblink)
 	while(flag == 0):
-		
 		page = requests.get(web_link)
 		html_contents = page.text
 		soup = bs.BeautifulSoup(html_contents, 'lxml')
