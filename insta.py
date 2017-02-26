@@ -12,6 +12,7 @@ from socket import timeout
 import requests
 
 def run(weblink,f,flag,brk):
+	print("Downloading all images")
 	web_link = "https://www.instagram.com/"+str(weblink)
 	while(flag == 0):
 		page = requests.get(web_link)
@@ -35,7 +36,7 @@ def run(weblink,f,flag,brk):
 				id = (mydict['entry_data']['ProfilePage'][0]['user']['media']['nodes'][i]['id'])
 				#print (id)
 			except:
-				print("loading finished")
+				print("Loading finished...")
 		for i in range(12):
 			f = f+1
 			try:
@@ -46,6 +47,7 @@ def run(weblink,f,flag,brk):
 			if src in src_link:
 				print("duplicate image link found")
 				print("whole process finished")
+				print("image downloading finished")
 				brk = 1
 			if brk != 0:
 				break
