@@ -12,9 +12,10 @@ from socket import timeout
 import requests
 
 def run(weblink,f,flag,brk):
-	print("Downloading all images")
+	print("downloading all images in"+str(weblink))
 	web_link = "https://www.instagram.com/"+str(weblink)
 	while(flag == 0):
+		
 		page = requests.get(web_link)
 		html_contents = page.text
 		soup = bs.BeautifulSoup(html_contents, 'lxml')
@@ -36,7 +37,7 @@ def run(weblink,f,flag,brk):
 				id = (mydict['entry_data']['ProfilePage'][0]['user']['media']['nodes'][i]['id'])
 				#print (id)
 			except:
-				print("Loading finished...")
+				print("Loading finished.......")
 		for i in range(12):
 			f = f+1
 			try:
