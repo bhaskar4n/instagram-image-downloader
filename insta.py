@@ -1,5 +1,5 @@
 #program to download images in instagram website.
-#only required profile page web address
+#only required profile name
 import json
 import urllib.request
 import urllib.request
@@ -12,7 +12,7 @@ from socket import timeout
 import requests
 
 def run(weblink,f,flag,brk):
-	print("downloading all images in"+str(weblink))
+	print("downloading all images in "+str(weblink))
 	web_link = "https://www.instagram.com/"+str(weblink)
 	while(flag == 0):
 		page = requests.get(web_link)
@@ -31,19 +31,28 @@ def run(weblink,f,flag,brk):
 		src_link = list()
 		loader = list()
 		mydict = json.loads(data11)
-		for i in range(11,12):
+		id = list()
+		id_count = 0
+
+		for i in range(1000):
 			try:
+				id_count+=1
 				id = (mydict['entry_data']['ProfilePage'][0]['user']['media']['nodes'][i]['id'])
-				#print (id)
+				print(id_count,"....",id)
 			except:
-				print("Loading finished.......")
-		for i in range(12):
+				last_id = id
+				print("last id:........ ",id)
+				print("located all id's")
+				id_count-1
+				print("id_count:.......",id_count-1)
+				break
+
+		for i in range(id_count-1):
 			f = f+1
 			try:
 				src = (mydict['entry_data']['ProfilePage'][0]['user']['media']['nodes'][i]['display_src'])
 			except:
 				print("image address indetifying finished")
-
 			if src in src_link:
 				print("duplicate image link found")
 				print("whole process finished")
@@ -54,7 +63,7 @@ def run(weblink,f,flag,brk):
 			src_link.append(src)
 			web_link = "https://www.instagram.com/"+str(weblink)+"/?max_id="+str(id)
 			loader.append(web_link)
-			print (f,"....",str(src))
+			print (f,":....",str(src))
 			urllib.request.urlretrieve(str(src),str(f)+"_image.jpg")
 		if brk != 0:
 			break
