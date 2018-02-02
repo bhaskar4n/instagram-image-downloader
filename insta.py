@@ -24,7 +24,7 @@ def run(weblink,f,flag,brk):
 			#print(a,"###################################")
 			#print(i)
 			a = a+1
-		jsondata = str(data[3])
+		jsondata = str(data[2])
 		jd = str(jsondata[52:])
 		data11 = str(jd[:-10])
 		#print(data11)
