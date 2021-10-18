@@ -56,5 +56,4 @@ for i in link:
         with open("/home/#####/Desktop/####/test/image_"+str(n)+".jpeg", 'wb') as f: #enter storage location here...
             f.write(response.content)
 
-print('all images download...')
-
+print('all images downloaded...')
