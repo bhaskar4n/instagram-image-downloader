@@ -1,2 +1,2 @@
 Instagram image downloader<br>
-Required Python 3.7.0 
+Required Python 3.7.0 <br>
