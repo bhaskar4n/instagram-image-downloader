@@ -3,7 +3,7 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 import time
 #driver = webdriver.Firefox(executable_path = '/usr/local/bin/geckodriver')
-#link = /home/baskar/.mozilla/firefox/#######.default
+#link = /home/#####/.mozilla/firefox/#######.default
 options = Options()
 #options.headless = True
 options.add_argument("-profile")
