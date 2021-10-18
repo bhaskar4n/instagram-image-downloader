@@ -7,7 +7,7 @@ import time
 options = Options()
 #options.headless = True
 options.add_argument("-profile")
-options.add_argument("/home/#####/.mozilla/firefox/######.default") #enter profile link here...
+options.add_argument("/home/#####/.mozilla/firefox/######.default") #enter profile location here
 firefox_capabilities = DesiredCapabilities.FIREFOX
 firefox_capabilities['marionette'] = True
 driver = webdriver.Firefox(capabilities=firefox_capabilities, options=options)
